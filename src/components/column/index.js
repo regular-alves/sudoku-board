@@ -1,7 +1,9 @@
-const Column = ({value}) => {
+import './style.css';
+
+const Column = ({value, column}) => {
     return (
-        <div className="column">
-            <input type="number" value={value} />
+        <div className={`column column-${column}`}>
+            <input type="text" value={value} />
         </div>
     );
 }

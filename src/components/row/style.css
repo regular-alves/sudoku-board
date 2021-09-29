@@ -1,0 +1,5 @@
+.sudoku-board .row {
+    display: flex;
+    flex-flow: row;
+    max-width: 100%;
+}
