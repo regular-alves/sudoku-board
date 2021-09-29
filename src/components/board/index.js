@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 import Row from '../row';
 
@@ -15,9 +15,29 @@ const Board = length => {
         [0,0,0,0,0,0,0,0,0],
     ]);
 
+    const setField = (y,x,value) => {
+        let newFields = fields.slice();
+        
+        if(newFields[y][x]!==undefined) {
+            newFields[y][x] = value
+        }
+
+        setFields(newFields);
+    }
+
+    useEffect(() => {
+        console.table(fields);
+    }, [fields]);
+
     return (
         <div className="sudoku-board">
-            {fields.map((columns, key) => (<Row columns={columns} row={key} />))}
+            {fields.map((columns, key) => (
+                <Row 
+                    columns={columns} 
+                    row={key} 
+                    changeHandler={setField}
+                />
+            ))}
         </div>
     );
 }

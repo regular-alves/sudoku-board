@@ -1,9 +1,15 @@
 import './style.css';
 
-const Column = ({value, column}) => {
+const Column = ({value, column, changeHandler}) => {
     return (
         <div className={`column column-${column}`}>
-            <input type="text" value={value} />
+            <input 
+                type="text" 
+                value={value} 
+                onChange={(e) => {
+                    changeHandler(column, e.target.value);
+                }}
+            />
         </div>
     );
 }
