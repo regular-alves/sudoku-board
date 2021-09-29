@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* http://meyerweb.com/eric/tools/css/reset/ 
+        v2.0 | 20110126
+        License: none (public domain)
+        */
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            display: flex;
+            background: #f0f0f0;
+        }
+
+        .sudoku-board {
+            width: 400px;
+            max-width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-flow: column;
+            border: 1px solid #333;
+            height: auto;
+            align-self: center;
+            background: #fdfdfd;
+        }
+
+        .sudoku-board .row {
+            display: flex;
+            flex-flow: row;
+            max-width: 100%;
+        }
+        
+        .sudoku-board .row .col {
+            border-width: 0 1px 1px 0;
+            border-style: solid;
+            border-color: #aaa;
+        }
+
+        .sudoku-board .row .col:last-child {
+            border-right-width: 0;        
+        }
+
+        .sudoku-board .row:last-child .col {
+            border-bottom-width: 0;        
+        }
+        
+        .sudoku-board .row .col input {
+            border: 0;
+            width: 100%;
+            font-size: 16px;
+            text-align: center;
+            line-height: 2em;
+            padding: 0;
+        }
+        
+        .sudoku-board .row .col input:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="sudoku-board">
+        <div class="row">
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <input type="text">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
