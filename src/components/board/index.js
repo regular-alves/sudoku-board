@@ -35,6 +35,7 @@ const Board = length => {
                 <Row 
                     columns={columns} 
                     row={key} 
+                    boardLength={length}
                     changeHandler={setField}
                 />
             ))}

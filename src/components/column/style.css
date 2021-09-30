@@ -1,7 +1,15 @@
 .sudoku-board .row .column {
     border-width: 0 1px 1px 0;
     border-style: solid;
-    border-color: #aaa;
+    border-color: #ddd;
+}
+
+.sudoku-board .row .column.section-last {
+    border-right-color: #333;
+}
+
+.sudoku-board .row.row-section-last .column {
+    border-bottom-color: #333;
 }
 
 .sudoku-board .row .column:last-child {
