@@ -1,26 +1,33 @@
+import React from 'react';
 import './style.css';
 
-const Column = ({value, column, changeHandler, boardLength}) => {
-    const sectionLength = Math.sqrt(boardLength.length);
-    const lastOfSection = (column + 1) % sectionLength===0;
+export default class Column extends React.Component {
+    constructor(props) {
+        super(props);
 
-    return (
-        <div 
-            className={
-                `column column-${column} ` + 
-                `section-${Math.floor((column + sectionLength) / sectionLength)} ` +
-                `${lastOfSection ? 'section-last' : ''}` 
-            }
-        >
-            <input 
-                type="text" 
-                value={value} 
-                onChange={(e) => {
-                    changeHandler(column, e.target.value);
-                }}
-            />
-        </div>
-    );
+        this.sectionLength = Math.sqrt(this.props.boardLength);
+        this.lastOfSection = (this.props.column + 1) % this.sectionLength===0;
+    }
+
+    render() {
+        return (
+            <div 
+                className={
+                    `column column-${this.props.column} ` + 
+                    `section-${Math.floor((this.props.column + this.sectionLength) / this.sectionLength)} ` +
+                    `${this.lastOfSection ? 'section-last' : ''}`
+                }
+            >
+                <input 
+                    id={`input-${this.props.row}-${this.props.column}`}
+                    type="text" 
+                    value={this.props.value}
+                    ref={this.inputRef}
+                    onChange={(e) => {
+                        this.props.changeHandler(this.props.column, e.target.value);
+                    }}
+                />
+            </div>
+        );
+    }
 }
-
-export default Column;
