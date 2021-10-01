@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './style.css';
 import Row from '../row';
 
-const Board = length => {
+const Board = ({length}) => {
     const [fields, setFields] = useState([
         [0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0],
