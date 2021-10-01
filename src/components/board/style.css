@@ -4,7 +4,7 @@
     margin: 0 auto;
     display: flex;
     flex-flow: column;
-    border: 1px solid #333;
+    /* border: 1px solid #333; */
     height: auto;
     align-self: center;
     background: #fdfdfd;
