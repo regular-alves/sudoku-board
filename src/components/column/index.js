@@ -15,7 +15,8 @@ export default class Column extends React.Component {
                 className={
                     `column column-${this.props.column} ` + 
                     `section-${Math.floor((this.props.column + this.sectionLength) / this.sectionLength)} ` +
-                    `${this.lastOfSection ? 'section-last' : ''}`
+                    `${this.lastOfSection ? 'section-last' : ''} ` +
+                    `${this.props?.hasColumnError ? 'error' : ''}` 
                 }
             >
                 <input 

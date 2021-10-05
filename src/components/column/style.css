@@ -2,6 +2,12 @@
     border-width: 0 1px 1px 0;
     border-style: solid;
     border-color: #ddd;
+    background: #fff;
+}
+
+.sudoku-board .row.error .column,
+.sudoku-board .row .error.column {
+    background: #f9f1f1;
 }
 
 .sudoku-board .row .column.section-last {
@@ -28,6 +34,7 @@
     line-height: 3em;
     padding: 0;
     text-align: center;
+    background: transparent;
 }
 
 .sudoku-board .row .column input:focus {
