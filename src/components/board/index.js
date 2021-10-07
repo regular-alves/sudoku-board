@@ -23,6 +23,8 @@ const Board = ({length}) => {
         [null,null,null,null,null,null,null,null,null],
     ]);
 
+    const duplicated = (val, i, self) => self.indexOf(val) !== i;
+
     const setField = (y,x,v) => {
         let newFields = fields.slice();
         
@@ -34,6 +36,9 @@ const Board = ({length}) => {
                     error: false
                 }
             }
+
+            
+            newFields = checkBoard(newFields);
         }
 
         setFields(newFields);
@@ -88,6 +93,34 @@ const Board = ({length}) => {
         });
         
         return resultSet.map(field => field?.value).filter(item => !!item);
+    }
+
+    const checkBoard = (boardFields) => {
+        return boardFields
+            .map(row => 
+                row.map(col => {
+                    return {
+                        ...defaultObject,
+                        ...{
+                            error: false,
+                            value: col?.value || null
+                        }
+                    }
+                })
+            )
+            .map((row, y) => 
+                row.map((col, x) => {
+                    if(col.value && (
+                        getRow(y).filter(duplicated).includes(col.value) ||
+                        getColumn(x).filter(duplicated).includes(col.value) ||
+                        getSection(y, x).filter(duplicated).includes(col.value)
+                    )) {
+                        col.error = true;
+                    }
+
+                    return col;
+                })
+            );
     }
 
     return (
