@@ -80,20 +80,14 @@ const Board = ({length}) => {
         const resultSet = [];
         const section = Math.sqrt(length);
         
-        fields.slice(
-            Math.floor(y / section) * section,
-            section
-        )
-        .map(row => {
-            row.slice(
-                Math.floor(x / section) * section,
-                section
-            );
+        const startY = Math.floor(y / section) * section;
+        const startX = Math.floor(x / section) * section;
 
-            resultSet.push(...row);
+        fields
+            .slice(startY, startY + section)
+            .map(row => resultSet.push(...row.slice(startX, startX + section)));
 
             return row;
-        });
         
         return resultSet.map(field => field?.value).filter(item => !!item);
     }
