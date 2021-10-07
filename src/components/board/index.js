@@ -78,7 +78,7 @@ const Board = ({length}) => {
     const getSection = (y,x) => {
         const resultSet = [];
         const section = Math.sqrt(length);
-        
+
         const startY = Math.floor(y / section) * section;
         const startX = Math.floor(x / section) * section;
 
@@ -117,20 +117,11 @@ const Board = ({length}) => {
                     values.push(...getRow(y));
                     values.push(...getColumn(x));
                     values.push(...getSection(y, x));
-
+                    
                     const uniqueValues = values.filter(unique);
                     col.possible = [...Array(length).keys()]
                         .map(x => x + 1)
                         .filter(x => !uniqueValues.includes(x));
-
-                    if(col.value) {
-                        console.log({
-                            value: col.value,
-                            getRow: getRow(y),
-                            getColumn: getColumn(x),
-                            getSection: getSection(y, x)
-                        });
-                    }
 
                     return col;
                 })
