@@ -118,9 +118,10 @@ const Board = ({length}) => {
                     values.push(...getColumn(x));
                     values.push(...getSection(y, x));
 
+                    const uniqueValues = values.filter(unique);
                     col.possible = [...Array(length).keys()]
                         .map(x => x + 1)
-                        .filter(x => !values.filter(unique).includes(x));
+                        .filter(x => !uniqueValues.includes(x));
 
                     if(col.value) {
                         console.log({
