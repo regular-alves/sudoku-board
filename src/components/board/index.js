@@ -24,6 +24,7 @@ const Board = ({length}) => {
     ]);
 
     const duplicated = (val, i, self) => self.indexOf(val) !== i;
+    const unique = (val, i, self) => self.indexOf(val) === i;
 
     const setField = (y,x,v) => {
         let newFields = fields.slice();
@@ -110,12 +111,12 @@ const Board = ({length}) => {
             )
             .map((row, y) => 
                 row.map((col, x) => {
-                    if(col.value && (
-                        getRow(y).filter(duplicated).includes(col.value) ||
-                        getColumn(x).filter(duplicated).includes(col.value) ||
-                        getSection(y, x).filter(duplicated).includes(col.value)
-                    )) {
-                        col.error = true;
+                    if(col.value) {
+                        col.error = !!(
+                            getRow(y).filter(duplicated).includes(col.value) ||
+                            getColumn(x).filter(duplicated).includes(col.value) ||
+                            getSection(y, x).filter(duplicated).includes(col.value)
+                        );
                     }
 
                     return col;
