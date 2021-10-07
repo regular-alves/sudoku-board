@@ -34,11 +34,10 @@ const Board = ({length}) => {
             newFields[y][x] = {
                 ...defaultObject,
                 ...{
-                    value: v,
+                    value: parseInt(v),
                     error: false
                 }
             }
-
             
             newFields = checkBoard(newFields);
         }
@@ -65,7 +64,7 @@ const Board = ({length}) => {
     const getRow = (y) => {
         let resultSet = fields[y] || [];
 
-        return resultSet.map(field => field?.value).filter(item => !!item);
+        return resultSet.map(field => field?.value ? parseInt(field.value) : null).filter(item => !!item);
     }
     
     const getColumn = (x) => {
@@ -73,7 +72,7 @@ const Board = ({length}) => {
         
         fields.slice().map((row) => resultSet.push(row[x] || null));
         
-        return resultSet.map(field => field?.value).filter(item => !!item);
+        return resultSet.map(field => field?.value ? parseInt(field.value) : null).filter(item => !!item);
     }
     
     const getSection = (y,x) => {
@@ -87,9 +86,7 @@ const Board = ({length}) => {
             .slice(startY, startY + section)
             .map(row => resultSet.push(...row.slice(startX, startX + section)));
 
-            return row;
-        
-        return resultSet.map(field => field?.value).filter(item => !!item);
+        return resultSet.map(field => field?.value ? parseInt(field.value) : null).filter(item => !!item);
     }
 
     const checkBoard = (boardFields) => {
