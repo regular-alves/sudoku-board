@@ -3,6 +3,7 @@
     border-style: solid;
     border-color: #ddd;
     background: #fff;
+    position: relative;
 }
 
 .sudoku-board .row.error .column,
@@ -35,8 +36,58 @@
     padding: 0;
     text-align: center;
     background: transparent;
+    z-index: 2;
 }
 
 .sudoku-board .row .column input:focus {
     outline: none;
+}
+
+.sudoku-board .row .column .possible {
+    z-index: 1;
+    position: absolute;
+    color: #a6a6a6;
+    font-size: 11px;
+    line-height: 1.5em;
+    opacity: .1;
+}
+
+.sudoku-board .row .column:hover .possible {
+    opacity: 1;
+}
+
+.sudoku-board .row .column .possible:nth-child(1),
+.sudoku-board .row .column .possible:nth-child(2),
+.sudoku-board .row .column .possible:nth-child(3) {
+    left: 5px;
+}
+
+.sudoku-board .row .column .possible:nth-child(4),
+.sudoku-board .row .column .possible:nth-child(5),
+.sudoku-board .row .column .possible:nth-child(6) {
+    left: 44%;
+}
+
+.sudoku-board .row .column .possible:nth-child(7),
+.sudoku-board .row .column .possible:nth-child(8),
+.sudoku-board .row .column .possible:nth-child(9) {
+    right: 5px;
+}
+
+.sudoku-board .row .column .possible:nth-child(1),
+.sudoku-board .row .column .possible:nth-child(4),
+.sudoku-board .row .column .possible:nth-child(7) {
+    top: 2px;
+}
+
+.sudoku-board .row .column .possible:nth-child(2),
+.sudoku-board .row .column .possible:nth-child(5),
+.sudoku-board .row .column .possible:nth-child(8) {
+    top: calc(50% - 8px);
+}
+
+.sudoku-board .row .column .possible:nth-child(3),
+.sudoku-board .row .column .possible:nth-child(6),
+.sudoku-board .row .column .possible:nth-child(9) {
+    bottom: 2px;
 }

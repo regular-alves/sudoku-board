@@ -20,6 +20,7 @@ const Row = ({columns, row, changeHandler, boardLength, activeRow, activeColumn,
                     changeHandler={changeFieldHandler} 
                     isActive={activeRow===row && activeColumn===key}
                     hasError={col?.error || false}
+                    possible={col?.possible || []}
                 />
             ))}
         </div>

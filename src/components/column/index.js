@@ -28,6 +28,12 @@ export default class Column extends React.Component {
                         this.props.changeHandler(this.props.column, e.target.value);
                     }}
                 />
+                <div className="possibles">{
+                    this.props?.possible.length>0 
+                    && this.props.possible.map(i => (
+                        <div className="possible">{`${i}`}</div>
+                    ))
+                }</div>
             </div>
         );
     }

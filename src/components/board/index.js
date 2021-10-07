@@ -6,6 +6,7 @@ const Board = ({length}) => {
     const defaultObject = {
         value: null, 
         error: true,
+        possible: []
     };
 
     /* const [fields, setFields] = useState(Array(9).fill(Array(9).fill(defaultObject))); */
@@ -77,7 +78,8 @@ const Board = ({length}) => {
     
     const getSection = (y,x) => {
         const resultSet = [];
-
+        const section = Math.sqrt(length);
+        
         fields.slice(
             Math.floor(y / section) * section,
             section
@@ -117,6 +119,25 @@ const Board = ({length}) => {
                             getColumn(x).filter(duplicated).includes(col.value) ||
                             getSection(y, x).filter(duplicated).includes(col.value)
                         );
+                    }
+                    
+                    const values = [];
+
+                    values.push(...getRow(y));
+                    values.push(...getColumn(x));
+                    values.push(...getSection(y, x));
+
+                    col.possible = [...Array(length).keys()]
+                        .map(x => x + 1)
+                        .filter(x => !values.filter(unique).includes(x));
+
+                    if(col.value) {
+                        console.log({
+                            value: col.value,
+                            getRow: getRow(y),
+                            getColumn: getColumn(x),
+                            getSection: getSection(y, x)
+                        });
                     }
 
                     return col;
