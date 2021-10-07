@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import Row from '../row';
 
@@ -34,33 +34,10 @@ const Board = ({length}) => {
                     error: false
                 }
             }
-
-            const fieldRow = getRow(y)
-                .map(col => col.value)
-                .filter(col => !!col);
-
-            if(fieldRow.length!==fieldRow.filter(unique).length) {
-                newFields = setToRow(newFields, y);
-            }
-            
-            const fieldColumn = getColumn(x)
-                .map(col => col.value)
-                .filter(col => !!col);
-
-            if(fieldColumn.length!==fieldColumn.filter(unique).length) {
-                newFields = setToColumn(newFields, x);
-            }
-
-            const fieldSection = getSection(y,x)
-                .map(col => col.value)
-                .filter(col => !!col);
-
-            if(fieldSection.length!==fieldSection.filter(unique).length) {
-                console.log({fieldSection});
-            }
         }
 
         setFields(newFields);
+
         getSection(y, x);
 
         let nextY = y;
@@ -81,7 +58,7 @@ const Board = ({length}) => {
     const getRow = (y) => {
         let resultSet = fields[y] || [];
 
-        return resultSet.filter(item => !!item);
+        return resultSet.map(field => field?.value).filter(item => !!item);
     }
     
     const getColumn = (x) => {
@@ -89,7 +66,7 @@ const Board = ({length}) => {
         
         fields.slice().map((row) => resultSet.push(row[x] || null));
         
-        return resultSet.filter(item => !!item);
+        return resultSet.map(field => field?.value).filter(item => !!item);
     }
     
     const getSection = (y,x) => {
@@ -110,61 +87,8 @@ const Board = ({length}) => {
             return row;
         });
         
-        return resultSet.filter(item => !!item);
+        return resultSet.map(field => field?.value).filter(item => !!item);
     }
-
-    const setToColumn = (newFields, x) => {
-        return newFields.map(row => {
-            if(row.length && row[x]) {
-                row[x] = {
-                    ...defaultObject,
-                    ...{
-                        value: row[x]?.value || null,
-                        error: true
-                    }
-                };
-            }
-
-            return row;
-        })
-    }
-
-    const setToRow = (newFields, y) => {
-        const values = newFields.slice();
-
-        if(values.length<1 && values[y]) {
-            return;
-        }
-
-        values[y] = values[y].map(col => {
-            return {
-                ...defaultObject,
-                ...{
-                    value: col?.value,
-                    error: true
-                }
-            };
-        });
-
-        return values;
-    }
-
-    const setToSection = (newFilds,y,x) => {
-    }
-
-    const unique = (val, i, self) => self.indexOf(val) === i;
-
-    useEffect(() => console.log(fields), [fields]);
-
-    let columnErrors = Array(length).fill(0);
-
-    fields.slice().map(row => row.map((col, x) => {
-        if(col?.error) {
-            columnErrors[x]++;
-        }
-
-        return col;
-    }))
 
     return (
         <div className="sudoku-board">
@@ -176,7 +100,6 @@ const Board = ({length}) => {
                     changeHandler={setField}
                     activeRow={active[0]}
                     activeColumn={active[1]}
-                    columnErrors={columnErrors}
                 />
             ))}
         </div>
