@@ -1,22 +1,42 @@
 .sudoku-board .row .column {
     border-width: 0 1px 1px 0;
     border-style: solid;
-    border-color: #ddd;
-    background: #fff;
+    border-color: var(--cell-border-light);
+    background: var(--cell-bg-light);
     position: relative;
+}
+
+.dark .sudoku-board .row .column {
+    border-color: var(--cell-border-dark);
+    background: var(--cell-bg-dark);
 }
 
 .sudoku-board .row.error .column,
 .sudoku-board .row .error.column {
-    background: #f9f1f1;
+    background: var(--error-bg-light);
+}
+
+.dark .sudoku-board .row.error .column,
+.dark .sudoku-board .row .error.column {
+    background: var(--error-bg-dark);
 }
 
 .sudoku-board .row .column.section-last {
-    border-right-color: #333;
+    border-right-color: var(--section-border-light);
+    border-right-width: 1.4px;
 }
 
 .sudoku-board .row.row-section-last .column {
-    border-bottom-color: #333;
+    border-bottom-color: var(--section-border-light);
+    border-bottom-width: 1.4px;
+}
+
+.dark .sudoku-board .row .column.section-last {
+    border-right-color: var(--section-border-dark);
+}
+
+.dark .sudoku-board .row.row-section-last .column {
+    border-bottom-color: var(--section-border-dark);
 }
 
 .sudoku-board .row .column:last-child {
@@ -30,7 +50,7 @@
 .sudoku-board .row .column input {
     border: 0;
     width: 100%;
-    font-size: 17px;
+    font-size: var(--xl-size);
     text-align: center;
     line-height: 3em;
     padding: 0;
@@ -46,10 +66,15 @@
 .sudoku-board .row .column .possible {
     z-index: 1;
     position: absolute;
-    color: #a6a6a6;
-    font-size: 11px;
+    color: var(--text-light-gray);
+    font-size: var(--s-size);
     line-height: 1.5em;
     opacity: .1;
+    display: none;
+}
+
+.show-tips .sudoku-board .row .column .possible {
+    display: inherit;
 }
 
 .sudoku-board .row .column:hover .possible {

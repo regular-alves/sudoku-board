@@ -1,0 +1,22 @@
+:root {
+    --body-bg-light: #f0f0f0;
+    --body-bg-dark: #362d2d;
+    --cell-bg-light: #fff;
+    --cell-bg-dark: #7a6a6a;
+    --cell-border-light: #ddd;
+    --cell-border-dark: #362d2d;
+    
+    --section-border-light: #acacac;
+    --section-border-dark: #000;
+
+    --error-bg-light:#f9f1f1;
+    --error-bg-dark:#ab7a7a;
+
+    --size: 14px;
+    --xs-size: 9px;
+    --s-size: 11px;
+    --l-size: 16px;
+    --xl-size: 18px;
+
+    --text-light-gray: #a6a6a6;
+}

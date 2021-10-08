@@ -47,12 +47,17 @@ table {
     border-spacing: 0;
 }
 
-body {
+html, body, #root {
     height: 100%;
+}
+
+body {
     width: 100%;
-    position: fixed;
-    display: flex;
-    background: #f0f0f0;
+    background: var(--body-bg-light);
+}
+
+body.dark {
+    background: var(--body-bg-dark);
 }
 
 #root {
