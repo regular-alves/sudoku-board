@@ -68,3 +68,13 @@ body.dark {
     height: 100%;
     display: flex;
 }
+
+.settings {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    width: 200px;
+    justify-content: space-around;
+    padding: 10px 0;
+}
