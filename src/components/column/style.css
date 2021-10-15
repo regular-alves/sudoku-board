@@ -85,18 +85,27 @@
 .sudoku-board .row .column .possible:nth-child(2),
 .sudoku-board .row .column .possible:nth-child(3) {
     left: 5px;
+    right: inherit;
 }
 
 .sudoku-board .row .column .possible:nth-child(4),
 .sudoku-board .row .column .possible:nth-child(5),
 .sudoku-board .row .column .possible:nth-child(6) {
     left: 44%;
+    right: inherit;
 }
 
 .sudoku-board .row .column .possible:nth-child(7),
 .sudoku-board .row .column .possible:nth-child(8),
 .sudoku-board .row .column .possible:nth-child(9) {
     right: 5px;
+}
+
+.sudoku-board .row .column .possible:nth-last-child(1),
+.sudoku-board .row .column .possible:nth-last-child(2),
+.sudoku-board .row .column .possible:nth-last-child(3) {
+    right: 5px;
+    left: inherit;
 }
 
 .sudoku-board .row .column .possible:nth-child(1),
@@ -113,6 +122,8 @@
 
 .sudoku-board .row .column .possible:nth-child(3),
 .sudoku-board .row .column .possible:nth-child(6),
-.sudoku-board .row .column .possible:nth-child(9) {
+.sudoku-board .row .column .possible:nth-child(9),
+.sudoku-board .row .column .possible:nth-child(5):nth-last-child(4) {
     bottom: 2px;
+    top: inherit;
 }
