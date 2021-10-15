@@ -55,6 +55,7 @@ body {
     width: 100%;
     background: var(--body-bg-light);
     transition: background linear .4s;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 
 body.dark {
