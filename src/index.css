@@ -54,10 +54,12 @@ html, body, #root {
 body {
     width: 100%;
     background: var(--body-bg-light);
+    transition: background linear .4s;
 }
 
 body.dark {
     background: var(--body-bg-dark);
+    transition: background linear .4s;
 }
 
 #root {

@@ -4,39 +4,47 @@
     border-color: var(--cell-border-light);
     background: var(--cell-bg-light);
     position: relative;
+    transition: background linear .4s, border-color linear .4s;
 }
 
 .dark .sudoku-board .row .column {
     border-color: var(--cell-border-dark);
     background: var(--cell-bg-dark);
+    transition: background linear .4s, border-color linear .4s;
 }
 
 .sudoku-board .row.error .column,
 .sudoku-board .row .error.column {
     background: var(--error-bg-light);
+    transition: background linear .4s;
 }
 
 .dark .sudoku-board .row.error .column,
 .dark .sudoku-board .row .error.column {
     background: var(--error-bg-dark);
+    transition: background linear .4s;
 }
 
 .sudoku-board .row .column.section-last {
     border-right-color: var(--section-border-light);
     border-right-width: 1.4px;
+    transition: border-color linear .4s;
 }
 
 .sudoku-board .row.row-section-last .column {
     border-bottom-color: var(--section-border-light);
+    transition: border-color linear .4s;
     border-bottom-width: 1.4px;
 }
 
 .dark .sudoku-board .row .column.section-last {
     border-right-color: var(--section-border-dark);
+    transition: border-color linear .4s;
 }
 
 .dark .sudoku-board .row.row-section-last .column {
     border-bottom-color: var(--section-border-dark);
+    transition: border-color linear .4s;
 }
 
 .sudoku-board .row .column:last-child {
