@@ -19,4 +19,9 @@
     --xl-size: 18px;
 
     --text-light-gray: #a6a6a6;
+
+    --toogle-desactive-color: #fce2e2;
+    --toogle-active-color: #dcfae5;
+    --toogle-text-light: #000;
+    --toogle-text-dark: #fdfdfd;
 }
