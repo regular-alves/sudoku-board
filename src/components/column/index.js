@@ -32,7 +32,12 @@ export default class Column extends React.Component {
                 <div className="possibles">{
                     this.props?.possible.length>0 
                     && this.props.possible.map(i => (
-                        <div className="possible">{`${i}`}</div>
+                        <label 
+                            for={`input-${this.props.row}-${this.props.column}`} 
+                            className="possible"
+                        >
+                            {i}
+                        </label>
                     ))
                 }</div>
             </div>
