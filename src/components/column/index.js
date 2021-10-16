@@ -21,7 +21,8 @@ export default class Column extends React.Component {
             >
                 <input 
                     id={`input-${this.props.row}-${this.props.column}`}
-                    type="text" 
+                    type="number" 
+                    className="field"
                     value={this.props.value}
                     ref={this.inputRef}
                     onChange={(e) => {
