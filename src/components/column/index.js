@@ -26,7 +26,7 @@ export default class Column extends React.Component {
                     value={this.props.value}
                     ref={this.inputRef}
                     onChange={(e) => {
-                        this.props.changeHandler(this.props.column, e.target.value);
+                        this.props.changeHandler(this.props.column, e.target.value.substr(-1));
                     }}
                 />
                 <div className="possibles">{
