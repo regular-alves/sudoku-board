@@ -1,5 +1,26 @@
+.sudoku-board {
+    counter-reset: row_n;
+}
+
+.row {
+    counter-increment: row_n;
+}
+
 .sudoku-board .row {
     display: flex;
     flex-flow: row;
     max-width: 100%;
+}
+
+.row:before {
+    content: counter(row_n) " ";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px 0 0;
+    color: var(--text-dark-gray);
+}
+
+.dark .row:before {
+    color: var(--text-light-gray);
 }

@@ -1,4 +1,4 @@
-.sudoku-board .row .column {
+.sudoku-board .row .column input {
     border-width: 0 1px 1px 0;
     border-style: solid;
     border-color: var(--cell-border-light);
@@ -7,63 +7,61 @@
     transition: background linear .4s, border-color linear .4s;
 }
 
-.dark .sudoku-board .row .column {
+.dark .sudoku-board .row .column input {
     border-color: var(--cell-border-dark);
     background: var(--cell-bg-dark);
     transition: background linear .4s, border-color linear .4s;
 }
 
-.sudoku-board .row.error .column,
-.sudoku-board .row .error.column {
+.sudoku-board .row.error .column input,
+.sudoku-board .row .error.column input {
     background: var(--error-bg-light);
     transition: background linear .4s, border-color linear .4s;
 }
 
-.dark .sudoku-board .row.error .column,
-.dark .sudoku-board .row .error.column {
+.dark .sudoku-board .row.error .column input,
+.dark .sudoku-board .row .error.column input {
     background: var(--error-bg-dark);
     transition: background linear .4s, border-color linear .4s;
 }
 
-.sudoku-board .row .column.section-last {
+.sudoku-board .row .column.section-last input {
     border-right-color: var(--section-border-light);
     border-right-width: 1.4px;
     transition: background linear .4s, border-color linear .4s;
 }
 
-.sudoku-board .row.row-section-last .column {
+.sudoku-board .row.row-section-last .column input {
     border-bottom-color: var(--section-border-light);
     transition: background linear .4s, border-color linear .4s;
     border-bottom-width: 1.4px;
 }
 
-.dark .sudoku-board .row .column.section-last {
+.dark .sudoku-board .row .column.section-last input {
     border-right-color: var(--section-border-dark);
     transition: background linear .4s, border-color linear .4s;
 }
 
-.dark .sudoku-board .row.row-section-last .column {
+.dark .sudoku-board .row.row-section-last .column input {
     border-bottom-color: var(--section-border-dark);
     transition: background linear .4s, border-color linear .4s;
 }
 
-.sudoku-board .row .column:last-child {
+.sudoku-board .row .column:last-child input {
     border-right-width: 0;        
 }
 
-.sudoku-board .row:last-child .column {
+.sudoku-board .row:last-child .column input {
     border-bottom-width: 0;        
 }
 
 .sudoku-board .row .column input {
-    border: 0;
-    width: 100%;
+    width: calc(100% - 1px);
     font-size: var(--xl-size);
     text-align: center;
     line-height: 3em;
     padding: 0;
     text-align: center;
-    background: transparent;
     z-index: 2;
 }
 
@@ -144,4 +142,35 @@ input.field::-webkit-inner-spin-button {
 
 input.field[type=number] {
   -moz-appearance: textfield;
+}
+
+.row {
+    counter-reset: col_n;
+}
+
+.column {
+    counter-increment: col_n;
+    position: relative;
+}
+
+.column:before {
+    content: counter(col_n, lower-alpha) " ";
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 0 0 0;
+    color: var(--text-dark-gray);
+    position: absolute;
+    width: 100%;
+    top: -25px;
+}
+
+.dark .column:before {
+    color: var(--text-light-gray);
+}
+
+
+.row:first-child .column:before {
+    display: flex;
 }
