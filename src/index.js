@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './global.css';
 import './index.css';
 import App from './App';
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-216506531-1');
 
 ReactDOM.render(
   <React.StrictMode>
