@@ -22,7 +22,6 @@ const Board = ({ length }) => {
 
     const setField = (y,x,v) => {
         if(!started && !!v) {
-            console.log({ v });
             setStarted(true);
         }
 
@@ -77,6 +76,8 @@ const Board = ({ length }) => {
                             getColumn(x).filter(duplicated).includes(col.value) ||
                             getSection(y, x).filter(duplicated).includes(col.value)
                         );
+                    }else{
+                        col.error = false;
                     }
                     
                     const values = [];
