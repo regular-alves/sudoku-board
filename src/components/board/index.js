@@ -28,8 +28,6 @@ const Board = ({ length }) => {
         let newFields = fields.slice();
         
         if(newFields[y][x]!==undefined) {
-            console.log({ x, y, field: newFields[y][x] });
-
             newFields[y][x].value = parseInt(v);
             
             newFields = checkBoard(newFields);
