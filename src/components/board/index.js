@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import Toogle from '../Toogle';
+import Timer from '../Timer';
+import Row from '../Row';
+
 import './style.css';
-import Row from '../row';
 
 const Board = ({ length }) => {
     const defaultObject = {
@@ -9,6 +12,7 @@ const Board = ({ length }) => {
         possible: Array.from(Array(length).keys())
     };
 
+    const [started, setStarted] = useState(false);
     const [fields, setFields] = useState(
         JSON.parse(JSON.stringify(Array(9).fill(Array(9).fill(defaultObject))))
     );
@@ -17,6 +21,11 @@ const Board = ({ length }) => {
     const unique = (val, i, self) => self.indexOf(val) === i;
 
     const setField = (y,x,v) => {
+        if(!started && !!v) {
+            console.log({ v });
+            setStarted(true);
+        }
+
         let newFields = fields.slice();
         
         if(newFields[y][x]!==undefined) {
@@ -87,16 +96,48 @@ const Board = ({ length }) => {
     }
 
     return (
-        <div className="sudoku-board">
-            {fields.map((columns, key) => (
-                <Row 
-                    columns={columns} 
-                    row={key} 
-                    boardLength={length}
-                    changeHandler={setField}
-                />
-            ))}
-        </div>
+        <>
+            <div className="sudoku-board">
+                {fields.map((columns, key) => (
+                    <Row 
+                        columns={columns} 
+                        row={key} 
+                        boardLength={length}
+                        changeHandler={setField}
+                    />
+                ))}
+            </div>
+            <div className="side-bar">
+                <div className="settings">
+                    <Toogle 
+                        text={'Dark theme'} 
+                        onChange={(e) => {
+                        const element = document.body;
+
+                        if(e.target.checked) {
+                            element.classList.add('dark');
+                        }else{
+                            element.classList.remove('dark');
+                        }
+                        }}
+                        />
+                    <Toogle 
+                        text={'Show tips'} 
+                        onChange={(e) => {
+                        const element = document.body;
+
+                        if(e.target.checked) {
+                            element.classList.add('show-tips');
+                        }else{
+                            element.classList.remove('show-tips');
+                        }
+                        }}
+                    />
+                </div>
+                <Timer started={started} />
+                <ul className="history"></ul>
+            </div>
+        </>
     );
 }
 

@@ -25,4 +25,8 @@
     --toogle-active-color: #dcfae5;
     --toogle-text-light: #000;
     --toogle-text-dark: #fdfdfd;
+    --toogle-background: #fafafa;
+
+    --sidebar-background: #fff;
+    --sidebar-border-color: #d0d0d0;
 }

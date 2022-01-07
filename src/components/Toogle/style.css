@@ -3,6 +3,9 @@
     flex-flow: column;
     align-items: center;
     color: var(--toogle-text-light);
+    padding: 10px;
+    background: var(--toogle-background);
+    flex-direction: row;
 }
 
 .dark .toogle-button {

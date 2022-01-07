@@ -1,5 +1,5 @@
 import './style.css';
-import Column from '../column';
+import Column from '../Column';
 
 const Row = ({ columns, row, changeHandler, boardLength }) => {
     const sectionLength = Math.sqrt(boardLength);

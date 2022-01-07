@@ -8,3 +8,25 @@
     height: auto;
     align-self: center;
 }
+
+.side-bar {
+    display: flex;
+    background: var(--sidebar-background);
+    border-left: 1px solid var(--sidebar-border-color);
+    height: 100%;
+    width: 250px;
+    flex-direction: column;
+    padding: 0 10px;
+}
+
+.side-bar > * {
+    margin: 15px 0 0 0;
+}
+
+.side-bar .settings {
+    top: 0;
+    right: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
