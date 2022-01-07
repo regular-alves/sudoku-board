@@ -1,7 +1,7 @@
 import './style.css';
 import Column from '../column';
 
-const Row = ({columns, row, changeHandler, boardLength, activeRow, activeColumn, columnErrors}) => {
+const Row = ({ columns, row, changeHandler, boardLength }) => {
     const sectionLength = Math.sqrt(boardLength);
     const lastOfSection = (row + 1) % sectionLength===0;
 
@@ -13,13 +13,11 @@ const Row = ({columns, row, changeHandler, boardLength, activeRow, activeColumn,
         <div className={`row row-${row} ${lastOfSection ? 'row-section-last' : ''}`}>
             {columns.map((col, key) => (
                 <Column 
-                    value={col?.value || ''} 
+                    {...col}
                     column={key} 
                     row={row}
                     boardLength={boardLength}
-                    changeHandler={changeFieldHandler} 
-                    isActive={activeRow===row && activeColumn===key}
-                    hasError={col?.error || false}
+                    changeHandler={changeFieldHandler}
                     possible={col?.possible || []}
                 />
             ))}

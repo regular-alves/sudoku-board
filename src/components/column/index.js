@@ -11,12 +11,12 @@ export default class Column extends React.Component {
 
     render() {
         return (
-            <div 
+            <div
                 className={
                     `column column-${this.props.column} ` + 
                     `section-${Math.floor((this.props.column + this.sectionLength) / this.sectionLength)} ` +
                     `${this.lastOfSection ? 'section-last' : ''} ` +
-                    `${this.props?.hasError ? 'error' : ''}` 
+                    `${this.props.error ? 'error' : ''}` 
                 }
             >
                 <input 
@@ -24,7 +24,6 @@ export default class Column extends React.Component {
                     type="number" 
                     className="field"
                     value={this.props.value}
-                    ref={this.inputRef}
                     onChange={(e) => {
                         this.props.changeHandler(this.props.column, e.target.value.substr(-1));
                     }}
@@ -33,11 +32,9 @@ export default class Column extends React.Component {
                     this.props?.possible.length>0 
                     && this.props.possible.map(i => (
                         <label 
-                            for={`input-${this.props.row}-${this.props.column}`} 
+                            htmlFor={`input-${this.props.row}-${this.props.column}`} 
                             className="possible"
-                        >
-                            {i}
-                        </label>
+                        >{i}</label>
                     ))
                 }</div>
             </div>
