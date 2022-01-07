@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/sudoku-board/static/css/main.5f787bf2.chunk.css",
-    "main.js": "/sudoku-board/static/js/main.158e0bdc.chunk.js",
-    "main.js.map": "/sudoku-board/static/js/main.158e0bdc.chunk.js.map",
+    "main.js": "/sudoku-board/static/js/main.e850d390.chunk.js",
+    "main.js.map": "/sudoku-board/static/js/main.e850d390.chunk.js.map",
     "runtime-main.js": "/sudoku-board/static/js/runtime-main.f58c7c3b.js",
     "runtime-main.js.map": "/sudoku-board/static/js/runtime-main.f58c7c3b.js.map",
     "static/js/2.0c5af46c.chunk.js": "/sudoku-board/static/js/2.0c5af46c.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.f58c7c3b.js",
     "static/js/2.0c5af46c.chunk.js",
     "static/css/main.5f787bf2.chunk.css",
-    "static/js/main.158e0bdc.chunk.js"
+    "static/js/main.e850d390.chunk.js"
   ]
 }
