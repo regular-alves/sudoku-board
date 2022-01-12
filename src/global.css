@@ -26,7 +26,11 @@
     --toogle-text-light: #000;
     --toogle-text-dark: #fdfdfd;
     --toogle-background: #fafafa;
+    --toogle-backgroun-dark: #362d2d;
 
     --sidebar-background: #fff;
     --sidebar-border-color: #d0d0d0;
+
+    --dark-sidebar-background: #2b2424;
+    --dark-sidebar-border-color: #201c1c;
 }

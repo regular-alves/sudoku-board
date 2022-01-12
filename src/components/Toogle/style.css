@@ -10,6 +10,7 @@
 
 .dark .toogle-button {
     color: var(--toogle-text-dark);
+    background: var(--toogle-backgroun-dark);
 }
 
 .toogle-button > span {

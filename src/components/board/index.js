@@ -4,21 +4,40 @@ import Timer from '../Timer';
 import Row from '../Row';
 
 import './style.css';
+import { useEffect } from 'react/cjs/react.development';
 
 const Board = ({ length }) => {
+    const storageFields = JSON.parse(localStorage.getItem('sudoku-board-fields'));
     const defaultObject = {
         value: null, 
         error: false,
         possible: Array.from(Array(length).keys())
     };
 
+    const [darkTheme, setDarkTheme] = useState(localStorage.getItem('sudoku-board-dark-theme')==='1');
+    const [tips, setTips] = useState(localStorage.getItem('sudoku-board-show-tips')==='1');
     const [started, setStarted] = useState(false);
     const [fields, setFields] = useState(
-        JSON.parse(JSON.stringify(Array(9).fill(Array(9).fill(defaultObject))))
+        storageFields && storageFields.length>0
+        ? storageFields.map(row => row.map(col => {
+            let field = JSON.parse(JSON.stringify(defaultObject)); 
+            return {
+                ...field,
+                value: col
+            };
+        }))
+        : JSON.parse(JSON.stringify(Array(9).fill(Array(9).fill(defaultObject))))
     );
-        
+  
     const duplicated = (val, i, self) => self.indexOf(val) !== i;
     const unique = (val, i, self) => self.indexOf(val) === i;
+
+    useEffect(() => {
+        localStorage.setItem(
+            'sudoku-board-fields', 
+            JSON.stringify(fields.map(row => row.map(col => col?.value ?? null)))
+        );
+    }, [fields]);
 
     const setField = (y,x,v) => {
         if(!started && !!v) {
@@ -95,7 +114,7 @@ const Board = ({ length }) => {
     }
 
     return (
-        <>
+        <div className={`wrapper ${darkTheme ? 'dark' : ''} ${tips ? 'show-tips' : ''}`}>
             <div className="sudoku-board">
                 {fields.map((columns, key) => (
                     <Row 
@@ -110,33 +129,41 @@ const Board = ({ length }) => {
                 <div className="settings">
                     <Toogle 
                         text={'Dark theme'} 
+                        checked={darkTheme}
                         onChange={(e) => {
-                        const element = document.body;
+                            console.log(!e.target.checked);
 
-                        if(e.target.checked) {
-                            element.classList.add('dark');
-                        }else{
-                            element.classList.remove('dark');
-                        }
+                            localStorage.setItem(
+                                'sudoku-board-dark-theme', 
+                                e.target.checked ? 1 : 0
+                            );
+
+                            setDarkTheme(e.target.checked ? 1 : 0);
                         }}
-                        />
+                    />
                     <Toogle 
                         text={'Show tips'} 
+                        checked={tips}
                         onChange={(e) => {
-                        const element = document.body;
+                            localStorage.setItem(
+                                'sudoku-board-show-tips', 
+                                e.target.checked ? 1 : 0
+                            );
 
-                        if(e.target.checked) {
-                            element.classList.add('show-tips');
-                        }else{
-                            element.classList.remove('show-tips');
-                        }
+                            setTips(e.target.checked ? 1 : 0);
                         }}
                     />
                 </div>
-                <Timer started={started} />
+                <Timer 
+                    started={started} 
+                    state={localStorage.getItem('sudoku-board-time')} 
+                    setState={(took) => {
+                        localStorage.setItem('sudoku-board-time', took);
+                    }}
+                />
                 <ul className="history"></ul>
             </div>
-        </>
+        </div>
     );
 }
 
