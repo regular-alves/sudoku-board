@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/sudoku-board/static/css/main.247fbcf5.chunk.css",
-    "main.js": "/sudoku-board/static/js/main.0d211dd4.chunk.js",
-    "main.js.map": "/sudoku-board/static/js/main.0d211dd4.chunk.js.map",
+    "main.js": "/sudoku-board/static/js/main.2d63d4f2.chunk.js",
+    "main.js.map": "/sudoku-board/static/js/main.2d63d4f2.chunk.js.map",
     "runtime-main.js": "/sudoku-board/static/js/runtime-main.f58c7c3b.js",
     "runtime-main.js.map": "/sudoku-board/static/js/runtime-main.f58c7c3b.js.map",
-    "static/js/2.1f91de90.chunk.js": "/sudoku-board/static/js/2.1f91de90.chunk.js",
-    "static/js/2.1f91de90.chunk.js.map": "/sudoku-board/static/js/2.1f91de90.chunk.js.map",
+    "static/js/2.9a4d8f98.chunk.js": "/sudoku-board/static/js/2.9a4d8f98.chunk.js",
+    "static/js/2.9a4d8f98.chunk.js.map": "/sudoku-board/static/js/2.9a4d8f98.chunk.js.map",
     "index.html": "/sudoku-board/index.html",
     "static/css/main.247fbcf5.chunk.css.map": "/sudoku-board/static/css/main.247fbcf5.chunk.css.map",
-    "static/js/2.1f91de90.chunk.js.LICENSE.txt": "/sudoku-board/static/js/2.1f91de90.chunk.js.LICENSE.txt"
+    "static/js/2.9a4d8f98.chunk.js.LICENSE.txt": "/sudoku-board/static/js/2.9a4d8f98.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f58c7c3b.js",
-    "static/js/2.1f91de90.chunk.js",
+    "static/js/2.9a4d8f98.chunk.js",
     "static/css/main.247fbcf5.chunk.css",
-    "static/js/main.0d211dd4.chunk.js"
+    "static/js/main.2d63d4f2.chunk.js"
   ]
 }
