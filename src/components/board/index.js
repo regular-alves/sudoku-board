@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Toogle from '../Toogle';
 import Timer from '../Timer';
 import Row from '../Row';
 
 import './style.css';
-import { useEffect } from 'react/cjs/react.development';
 
 const Board = ({ length }) => {
     const storageFields = JSON.parse(localStorage.getItem('sudoku-board-fields'));
