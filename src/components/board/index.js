@@ -113,6 +113,8 @@ const Board = ({ length }) => {
             );
     }
 
+    checkBoard(fields);
+
     return (
         <div className={`wrapper ${darkTheme ? 'dark' : ''} ${tips ? 'show-tips' : ''}`}>
             <div className="sudoku-board">
