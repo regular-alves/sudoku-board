@@ -5,3 +5,8 @@
     text-align: center;
     color: var(--toogle-text-light);
 }
+
+.dark .timer {
+    background: var(--toogle-backgroun-dark);
+    color: var(--toogle-text-dark);
+}
