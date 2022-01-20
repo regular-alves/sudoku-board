@@ -59,13 +59,14 @@
 }
 
 .sudoku-board .row .column input {
-    width: calc(100% - 1px);
+    width: 100%;
     font-size: var(--xl-size);
     text-align: center;
     line-height: 3em;
     padding: 0;
     text-align: center;
     z-index: 2;
+    box-sizing: border-box;
 }
 
 .sudoku-board .row .column input:focus {
