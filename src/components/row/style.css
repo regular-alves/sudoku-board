@@ -21,10 +21,6 @@
     color: var(--text-dark-gray);
 }
 
-.row:first-child:before {
-    margin-top: 1.5em;
-}
-
 .dark .row:before {
     color: var(--text-light-gray);
 }

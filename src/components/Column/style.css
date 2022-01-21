@@ -1,7 +1,3 @@
-.sudoku-board .row .column {
-    position: relative;
-}
-
 .sudoku-board .row .column input {
     border-width: 0 1px 1px 0;
     border-style: solid;
@@ -157,6 +153,10 @@ input.field[type=number] {
     position: relative;
 }
 
+.row:first-child .column {
+    margin-top: 30px;
+}
+
 .column:before {
     content: counter(col_n, lower-alpha) " ";
     display: none;
@@ -166,7 +166,8 @@ input.field[type=number] {
     padding: 0 0 0 0;
     color: var(--text-dark-gray);
     width: 100%;
-    margin-bottom: 9px;
+    position: absolute;
+    top: -26px;
 }
 
 .dark .column:before {
