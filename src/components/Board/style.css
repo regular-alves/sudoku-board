@@ -25,13 +25,14 @@
     /* border: 1px solid #333; */
     height: auto;
     align-self: center;
+    padding: 20px 0;
 }
 
 .side-bar {
     display: flex;
     background: var(--sidebar-background);
     border-left: 1px solid var(--sidebar-border-color);
-    height: 100%;
+    min-height: 100%;
     width: 250px;
     flex-direction: column;
     padding: 0 10px;

@@ -165,15 +165,13 @@ input.field[type=number] {
     flex-direction: column;
     padding: 0 0 0 0;
     color: var(--text-dark-gray);
-    position: absolute;
     width: 100%;
-    top: -25px;
+    margin-bottom: 9px;
 }
 
 .dark .column:before {
     color: var(--text-light-gray);
 }
-
 
 .row:first-child .column:before {
     display: flex;
