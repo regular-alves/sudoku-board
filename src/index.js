@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './global.css';
 import './index.css';
-import App from './App';
 import ReactGA from 'react-ga';
+import App from './App';
 
 ReactGA.initialize('UA-216506531-1');
 
@@ -12,12 +12,12 @@ ReactGA.pageview('/');
 
 ReactGA.exception({
   description: 'An error ocurred',
-  fatal: true
+  fatal: true,
 });
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
