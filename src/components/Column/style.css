@@ -1,4 +1,4 @@
-.sudoku-board .row .column input {
+.sudoku-board .column input {
     border-width: 0 1px 1px 0;
     border-style: solid;
     border-color: var(--cell-border-light);
@@ -6,47 +6,43 @@
     transition: background linear .4s, border-color linear .4s;
 }
 
-.dark .sudoku-board .row .column input {
+.dark .sudoku-board .column input {
     border-color: var(--cell-border-dark);
     background: var(--cell-bg-dark);
     transition: background linear .4s, border-color linear .4s;
 }
 
-.sudoku-board .row.error .column input,
-.sudoku-board .row .error.column input {
+.sudoku-board .error.column input {
     background: var(--error-bg-light);
     transition: background linear .4s, border-color linear .4s;
 }
 
-.dark .sudoku-board .row.error .column input,
-.dark .sudoku-board .row .error.column input {
+.dark .sudoku-board .error.column input {
     background: var(--error-bg-dark);
     transition: background linear .4s, border-color linear .4s;
 }
 
-.sudoku-board .row .column.section-last input {
+.sudoku-board .column.border-right input {
     border-right-color: var(--section-border-light);
     border-right-width: 1.4px;
     transition: background linear .4s, border-color linear .4s;
 }
 
-.sudoku-board .row.row-section-last .column input {
+.sudoku-board .column.border-bottom input {
     border-bottom-color: var(--section-border-light);
     transition: background linear .4s, border-color linear .4s;
     border-bottom-width: 1.4px;
 }
 
-.dark .sudoku-board .row .column.section-last input {
+.dark .sudoku-board .column.border-right input {
     border-right-color: var(--section-border-dark);
-    transition: background linear .4s, border-color linear .4s;
 }
 
-.dark .sudoku-board .row.row-section-last .column input {
+.dark .sudoku-board .column.border-bottom input {
     border-bottom-color: var(--section-border-dark);
-    transition: background linear .4s, border-color linear .4s;
 }
 
-.sudoku-board .row .column:last-child input {
+.sudoku-board .column:last-child input {
     border-right-width: 0;        
 }
 
@@ -54,7 +50,7 @@
     border-bottom-width: 0;        
 }
 
-.sudoku-board .row .column input {
+.sudoku-board .column input {
     width: 100%;
     font-size: var(--xl-size);
     text-align: center;
@@ -65,11 +61,11 @@
     box-sizing: border-box;
 }
 
-.sudoku-board .row .column input:focus {
+.sudoku-board .column input:focus {
     outline: none;
 }
 
-.sudoku-board .row .column .possible {
+.sudoku-board .column .possible {
     z-index: 1;
     position: absolute;
     color: var(--text-light-gray);
@@ -79,57 +75,57 @@
     display: none;
 }
 
-.show-tips .sudoku-board .row .column .possible {
+.show-tips .sudoku-board .column .possible {
     display: inherit;
 }
 
-.sudoku-board .row .column:hover .possible {
+.sudoku-board .column:hover .possible {
     opacity: 1;
 }
 
-.sudoku-board .row .column .possible:nth-child(1),
-.sudoku-board .row .column .possible:nth-child(2),
-.sudoku-board .row .column .possible:nth-child(3) {
+.sudoku-board .column .possible:nth-child(1),
+.sudoku-board .column .possible:nth-child(2),
+.sudoku-board .column .possible:nth-child(3) {
     left: 5px;
     right: inherit;
 }
 
-.sudoku-board .row .column .possible:nth-child(4),
-.sudoku-board .row .column .possible:nth-child(5),
-.sudoku-board .row .column .possible:nth-child(6) {
+.sudoku-board .column .possible:nth-child(4),
+.sudoku-board .column .possible:nth-child(5),
+.sudoku-board .column .possible:nth-child(6) {
     left: 44%;
     right: inherit;
 }
 
-.sudoku-board .row .column .possible:nth-child(7),
-.sudoku-board .row .column .possible:nth-child(8),
-.sudoku-board .row .column .possible:nth-child(9) {
+.sudoku-board .column .possible:nth-child(7),
+.sudoku-board .column .possible:nth-child(8),
+.sudoku-board .column .possible:nth-child(9) {
     right: 5px;
 }
 
-.sudoku-board .row .column .possible:nth-last-child(1),
-.sudoku-board .row .column .possible:nth-last-child(2),
-.sudoku-board .row .column .possible:nth-last-child(3) {
+.sudoku-board .column .possible:nth-last-child(1),
+.sudoku-board .column .possible:nth-last-child(2),
+.sudoku-board .column .possible:nth-last-child(3) {
     right: 5px;
     left: inherit;
 }
 
-.sudoku-board .row .column .possible:nth-child(1),
-.sudoku-board .row .column .possible:nth-child(4),
-.sudoku-board .row .column .possible:nth-child(7) {
+.sudoku-board .column .possible:nth-child(1),
+.sudoku-board .column .possible:nth-child(4),
+.sudoku-board .column .possible:nth-child(7) {
     top: 2px;
 }
 
-.sudoku-board .row .column .possible:nth-child(2),
-.sudoku-board .row .column .possible:nth-child(5),
-.sudoku-board .row .column .possible:nth-child(8) {
+.sudoku-board .column .possible:nth-child(2),
+.sudoku-board .column .possible:nth-child(5),
+.sudoku-board .column .possible:nth-child(8) {
     top: calc(50% - 8px);
 }
 
-.sudoku-board .row .column .possible:nth-child(3),
-.sudoku-board .row .column .possible:nth-child(6),
-.sudoku-board .row .column .possible:nth-child(9),
-.sudoku-board .row .column .possible:nth-child(5):nth-last-child(4) {
+.sudoku-board .column .possible:nth-child(3),
+.sudoku-board .column .possible:nth-child(6),
+.sudoku-board .column .possible:nth-child(9),
+.sudoku-board .column .possible:nth-child(5):nth-last-child(4) {
     bottom: 2px;
     top: inherit;
 }

@@ -5,7 +5,7 @@ import './style.css';
 
 function Timer(props) {
   const { started, state, setState } = props;
-  const [took, setTook] = useState(state === null || Math.isNaN(state) ? 0 : parseInt(state, 10));
+  const [took, setTook] = useState(state === null || Number.isNaN(state) ? 0 : parseInt(state, 10));
   const [startDate, setStartDate] = useState(0);
 
   if (started && !startDate) {

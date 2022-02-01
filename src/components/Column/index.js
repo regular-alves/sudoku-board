@@ -11,33 +11,44 @@ class Column extends React.Component {
     } = props;
 
     this.column = column;
-    this.error = error;
     this.row = row;
     this.value = value;
     this.changeHandler = changeHandler;
     this.possible = possible;
 
     this.sectionLength = Math.sqrt(boardLength);
-    this.lastOfSection = (column + 1) % this.sectionLength === 0;
+    this.classNames = [
+      'column',
+      `column-${this.column}`,
+      `section-${Math.floor((this.column + this.sectionLength) / this.sectionLength)}`,
+    ];
+
+    if ((column + 1) % this.sectionLength === 0 && boardLength !== (column + 1)) {
+      this.classNames.push('border-right');
+    }
+
+    if ((row + 1) % this.sectionLength === 0 && boardLength !== (row + 1)) {
+      this.classNames.push('border-bottom');
+    }
+
+    if (error) {
+      this.classNames.push('error');
+    }
   }
 
   render() {
     return (
       <div
-        className={
-                    `column column-${this.column} `
-                    + `section-${Math.floor((this.column + this.sectionLength) / this.sectionLength)} `
-                    + `${this.lastOfSection ? 'section-last' : ''} `
-                    + `${this.error ? 'error' : ''}`
-                }
+        key={`wrapper-${this.row}-${this.column}`}
+        className={this.classNames.join(' ')}
       >
         <input
-          id={`input-${this.row}-${this.column}`}
+          key={`input-${this.row}-${this.column}`}
           type="number"
           className="field"
           value={this.value}
           onChange={(e) => {
-            this.changeHandler(this.column, e.target.value.substr(-1));
+            this.changeHandler(this.row, this.column, e.target.value.substr(-1));
           }}
         />
         <div className="possibles">

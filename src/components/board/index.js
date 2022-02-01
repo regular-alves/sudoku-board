@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 import Toogle from '../Toogle';
 import Timer from '../Timer';
-import Row from '../Row';
+import Column from '../Column';
 
 import './style.css';
 
@@ -116,14 +116,18 @@ function Board({ length }) {
   return (
     <div className={`wrapper ${darkTheme ? 'dark' : ''} ${tips ? 'show-tips' : ''}`}>
       <div className="sudoku-board">
-        {fields.map((columns, key) => (
-          <Row
-            columns={columns}
-            row={key}
+        {fields.map((row, rowKey) => (row.map((col, colKey) => (
+          <Column
+            key={`item-${rowKey + 1}-${colKey + 1}`}
+            error={col.error}
+            value={col.value}
+            column={colKey}
+            row={rowKey}
             boardLength={length}
             changeHandler={setField}
+            possible={col.possible || []}
           />
-        ))}
+        ))))}
       </div>
       <div className="side-bar">
         <div className="settings">
@@ -156,7 +160,7 @@ function Board({ length }) {
         </div>
         <Timer
           started={started}
-          state={localStorage.getItem('sudoku-board-time')}
+          state={Number.parseInt(localStorage.getItem('sudoku-board-time'), 10)}
           setState={(took) => {
             localStorage.setItem('sudoku-board-time', took);
           }}
