@@ -129,6 +129,7 @@ function Board({ length }) {
         <div className="settings">
           <Toogle
             text="Dark theme"
+            id="dark-theme"
             checked={darkTheme}
             onChange={(e) => {
               localStorage.setItem(
@@ -141,6 +142,7 @@ function Board({ length }) {
           />
           <Toogle
             text="Show tips"
+            id="show-tips"
             checked={tips}
             onChange={(e) => {
               localStorage.setItem(
