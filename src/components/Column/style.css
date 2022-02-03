@@ -42,14 +42,6 @@
     border-bottom-color: var(--section-border-dark);
 }
 
-.sudoku-board .column:last-child input {
-    border-right-width: 0;        
-}
-
-.sudoku-board .row:last-child .column input {
-    border-bottom-width: 0;        
-}
-
 .sudoku-board .column input {
     width: 100%;
     font-size: var(--xl-size);
