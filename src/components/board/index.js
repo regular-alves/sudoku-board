@@ -29,6 +29,12 @@ function Board({ length }) {
       : JSON.parse(JSON.stringify(Array(9).fill(Array(9).fill(defaultObject)))),
   );
 
+  const appendTo = (ref, index) => {
+    if (!ref) return;
+
+    window.references = { ...(window.references || {}), [index]: ref };
+  };
+
   const duplicated = (val, i, self) => self.indexOf(val) !== i;
   const unique = (val, i, self) => self.indexOf(val) === i;
 
@@ -111,6 +117,65 @@ function Board({ length }) {
     setFields(newFields);
   };
 
+  const handleCellMoving = (col, row, keyCode) => {
+    let nextCol = col;
+    let nextRow = row;
+
+    if (keyCode === 37) {
+      nextCol = col - 1;
+    }
+
+    if (keyCode === 38) {
+      nextRow = row - 1;
+    }
+
+    if (keyCode === 39) {
+      nextCol = col + 1;
+    }
+
+    if (keyCode === 40) {
+      nextRow = row + 1;
+    }
+
+    if ([9, 13].includes(keyCode)) {
+      nextCol = col + 1;
+    }
+
+    if (nextCol >= length) {
+      nextCol = 0;
+      nextRow += 1;
+    }
+
+    if (nextRow >= length) {
+      nextRow = 0;
+    }
+
+    if (window.references[`${nextRow}:${nextCol}`] !== undefined) {
+      window.references[`${nextRow}:${nextCol}`].current.focus();
+    }
+  };
+
+  const keyUpEvent = (e) => {
+    e.preventDefault();
+
+    handleCellMoving(
+      Number.parseInt(e.target.getAttribute('data-col'), 10),
+      Number.parseInt(e.target.getAttribute('data-row'), 10),
+      [9, 13, 37, 38, 39, 40].includes(e.which) ? e.which : 39,
+    );
+
+    return false;
+  };
+
+  const keyDownEvent = (e) => {
+    if ([9, 13, 37, 38, 39, 40].includes(e.which)) {
+      e.preventDefault();
+      return false;
+    }
+
+    return e;
+  };
+
   checkBoard(fields);
 
   return (
@@ -125,6 +190,9 @@ function Board({ length }) {
             row={rowKey}
             boardLength={length}
             changeHandler={setField}
+            appendRef={appendTo}
+            keyUpHandler={keyUpEvent}
+            keyDownHandler={keyDownEvent}
             possible={col.possible || []}
           />
         ))))}
