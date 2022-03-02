@@ -1,9 +1,10 @@
 import React from 'react';
-import Board from './components/Board';
+import Game from './components/Game';
+import './index.css';
 
 function App() {
   return (
-    <Board length={9} />
+    <Game />
   );
 }
 

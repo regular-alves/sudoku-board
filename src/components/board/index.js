@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
-import Toogle from '../Toogle';
-import Timer from '../Timer';
 import Column from '../Column';
 
 import './style.css';
@@ -14,8 +12,6 @@ function Board({ length }) {
     possible: Array.from(Array(length).keys()),
   };
 
-  const [darkTheme, setDarkTheme] = useState(localStorage.getItem('sudoku-board-dark-theme') === '1');
-  const [tips, setTips] = useState(localStorage.getItem('sudoku-board-show-tips') === '1');
   const [started, setStarted] = useState(false);
   const [fields, setFields] = useState(
     storageFields && storageFields.length > 0
@@ -179,62 +175,22 @@ function Board({ length }) {
   checkBoard(fields);
 
   return (
-    <div className={`wrapper ${darkTheme ? 'dark' : ''} ${tips ? 'show-tips' : ''}`}>
-      <div className="sudoku-board">
-        {fields.map((row, rowKey) => (row.map((col, colKey) => (
-          <Column
-            key={`item-${rowKey + 1}-${colKey + 1}`}
-            error={col.error}
-            value={col.value}
-            column={colKey}
-            row={rowKey}
-            boardLength={length}
-            changeHandler={setField}
-            appendRef={appendTo}
-            keyUpHandler={keyUpEvent}
-            keyDownHandler={keyDownEvent}
-            possible={col.possible || []}
-          />
-        ))))}
-      </div>
-      <div className="side-bar">
-        <div className="settings">
-          <Toogle
-            text="Dark theme"
-            id="dark-theme"
-            checked={darkTheme}
-            onChange={(e) => {
-              localStorage.setItem(
-                'sudoku-board-dark-theme',
-                e.target.checked ? 1 : 0,
-              );
-
-              setDarkTheme(e.target.checked ? 1 : 0);
-            }}
-          />
-          <Toogle
-            text="Show tips"
-            id="show-tips"
-            checked={tips}
-            onChange={(e) => {
-              localStorage.setItem(
-                'sudoku-board-show-tips',
-                e.target.checked ? 1 : 0,
-              );
-
-              setTips(e.target.checked ? 1 : 0);
-            }}
-          />
-        </div>
-        <Timer
-          started={started}
-          state={Number.parseInt(localStorage.getItem('sudoku-board-time'), 10)}
-          setState={(took) => {
-            localStorage.setItem('sudoku-board-time', took);
-          }}
+    <div className="board">
+      {fields.map((row, rowKey) => (row.map((col, colKey) => (
+        <Column
+          key={`item-${rowKey + 1}-${colKey + 1}`}
+          error={col.error}
+          value={col.value}
+          column={colKey}
+          row={rowKey}
+          boardLength={length}
+          changeHandler={setField}
+          appendRef={appendTo}
+          keyUpHandler={keyUpEvent}
+          keyDownHandler={keyDownEvent}
+          possible={col.possible || []}
         />
-        <ul className="history" />
-      </div>
+      ))))}
     </div>
   );
 }

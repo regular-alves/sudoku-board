@@ -18,7 +18,7 @@ function Column(props) {
 
   const sectionLength = Math.sqrt(boardLength);
   const classNames = [
-    'column',
+    'field',
     `column-${column}`,
     `section-${Math.floor((column + sectionLength) / sectionLength)}`,
   ];
@@ -41,7 +41,7 @@ function Column(props) {
 
   return (
     <div
-      key={`wrapper-${row}-${column}`}
+      key={`field-${row}-${column}`}
       className={classNames.join(' ')}
     >
       <input
@@ -50,7 +50,6 @@ function Column(props) {
         data-row={row}
         type="number"
         ref={ref}
-        className="field"
         value={value}
         onKeyDown={keyDown}
         onKeyUp={keyUp}
