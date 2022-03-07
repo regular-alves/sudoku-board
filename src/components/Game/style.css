@@ -1,0 +1,16 @@
+.content {
+	grid-area: content;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	position: relative;
+}
+
+.content .game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
