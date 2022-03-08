@@ -103,3 +103,14 @@ body:after {
     position: relative;
     z-index: 3;
 }
+
+.app {
+	display: grid;
+	align-content: center;
+	justify-content: center;
+	grid-template-rows: 10vh 85vh 5vh;
+    grid-template-columns: 1fr;
+    grid-template-areas: "header" "content" "footer";
+	height: 100%;
+	width: 100%;
+}
