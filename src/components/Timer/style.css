@@ -1,12 +1,11 @@
 .timer {
-    align-items: center;
-    padding: 10px;
-    background: var(--toogle-background);
-    text-align: center;
-    color: var(--toogle-text-light);
-}
-
-.dark .timer {
-    background: var(--toogle-backgroun-dark);
-    color: var(--toogle-text-dark);
+    /* background: #ffffff; */
+    line-height: 2em;
+    padding: 0 30px;
+    border-radius: 4px 4px 0 0;
+    color: #182d2a;
+    z-index: 1;
+    position: relative;
+    border: 0px;
+    font-size: 1.4rem;
 }
