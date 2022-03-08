@@ -14,31 +14,31 @@ function Game() {
           values={[
             {
               value: 1,
-              recommended: true,
+              recommended: false,
             }, {
               value: 2,
-              recommended: true,
+              recommended: false,
             }, {
               value: 3,
-              recommended: true,
+              recommended: false,
             }, {
               value: 4,
-              recommended: true,
+              recommended: false,
             }, {
               value: 5,
-              recommended: true,
+              recommended: false,
             }, {
               value: 6,
-              recommended: true,
+              recommended: false,
             }, {
               value: 7,
-              recommended: true,
+              recommended: false,
             }, {
               value: 8,
-              recommended: true,
+              recommended: false,
             }, {
               value: 9,
-              recommended: true,
+              recommended: false,
             },
           ]}
         />
