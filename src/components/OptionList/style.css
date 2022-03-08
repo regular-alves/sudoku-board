@@ -1,0 +1,44 @@
+ul.options {
+  padding: 0 0 0 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  max-width: 700px;
+  justify-content: space-between;
+  margin: 30px 0 0 0;
+}
+
+ul.options .option button {
+  background: #fff;
+  color: #000;
+  border: 1px solid #f0f0f0;
+  line-height: 1.9em;
+  width: 1.9em;
+  border-radius: 4px;
+  font-size: 1.3rem;
+  box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, .11);
+}
+
+ul.options .option button.not-recommended {
+  background: #c4d5c7;
+  color: #6e6e6e;
+  border-color: #939393;
+  opacity: .7;
+}
+
+@media screen and (max-width: 1200px) {
+  .content .game ul.options {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  ul.options {
+    justify-content: center;
+  }
+
+  ul.options li {
+    padding: 0 8px 16px 8px;
+  }
+}
